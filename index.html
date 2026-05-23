@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario y Ventas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Inventario y Ventas</h1>
+        <nav>
+            <ul>
+                <li><a href="#inventario">Inventario</a></li>
+                <li><a href="#ventas">Ventas</a></li>
+                <li><a href="#reportes">Reportes</a></li>
+                <li><a href="#usuarios">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inventario">
+            <h2>Gestión de Inventario</h2>
+            <div class="form-container">
+                <h3>Agregar/Editar Producto</h3>
+                <form id="producto-form">
+                    <input type="hidden" id="producto-id">
+                    <label for="nombre-producto">Nombre:</label>
+                    <input type="text" id="nombre-producto" required>
+
+                    <label for="descripcion-producto">Descripción:</label>
+                    <textarea id="descripcion-producto"></textarea>
+
+                    <label for="stock-producto">Stock:</label>
+                    <input type="number" id="stock-producto" required min="0">
+
+                    <label for="precio-compra">Precio de Compra:</label>
+                    <input type="number" id="precio-compra" step="0.01" required min="0">
+
+                    <label for="precio-venta">Precio de Venta:</label>
+                    <input type="number" id="precio-venta" step="0.01" required min="0">
+
+                    <button type="submit">Guardar Producto</button>
+                    <button type="button" onclick="resetForm()">Limpiar</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h3>Listado de Productos</h3>
+                <input type="text" id="buscar-producto" placeholder="Buscar producto...">
+                <table id="tabla-inventario">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Stock</th>
+                            <th>Precio Compra</th>
+                            <th>Precio Venta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los datos se cargarán aquí con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="ventas">
+            <h2>Registro de Ventas</h2>
+            <div class="form-container">
+                <h3>Nueva Venta</h3>
+                <form id="venta-form">
+                    <label for="producto-venta">Producto:</label>
+                    <select id="producto-venta" required>
+                        <option value="">Seleccione un producto</option>
+                        <!-- Las opciones se cargarán aquí con JavaScript -->
+                    </select>
+
+                    <label for="cantidad-venta">Cantidad:</label>
+                    <input type="number" id="cantidad-venta" required min="1">
+
+                    <label for="precio-unitario-venta">Precio Unitario:</label>
+                    <input type="number" id="precio-unitario-venta" step="0.01" readonly>
+
+                    <label for="total-venta">Total:</label>
+                    <input type="number" id="total-venta" step="0.01" readonly>
+
+                    <button type="submit">Registrar Venta</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h3>Historial de Ventas</h3>
+                <table id="tabla-ventas">
+                    <thead>
+                        <tr>
+                            <th>ID Venta</th>
+                            <th>Fecha</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los datos se cargarán aquí con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="reportes">
+            <h2>Reportes</h2>
+            <p>Aquí se mostrarán los reportes generados (ej. ventas por período, inventario bajo stock, etc.).</p>
+            <!-- Contenido de reportes a desarrollar -->
+        </section>
+
+        <section id="usuarios">
+            <h2>Gestión de Usuarios</h2>
+            <p>Funcionalidad para administrar usuarios y permisos (Autenticación y Autorización).</p>
+            <!-- Contenido de gestión de usuarios a desarrollar -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Sistema de Gestión de Inventario y Ventas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
